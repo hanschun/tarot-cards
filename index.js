@@ -6,7 +6,7 @@ const mapMajor = () => {
   return major
 }
 
-export const drawMajorByName = () => {
+export const drawMajorByName = (name) => {
   const major = mapMajor()
   console.log(major.get(name))
   return major.get(name)
