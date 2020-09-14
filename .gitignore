@@ -1,5 +1,8 @@
-#dependencies
+# dependencies
 /node_modules
 
-#editor settings
+# editor settings
 /.vscode
+
+# testing
+/.nyc_output
