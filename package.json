@@ -2,10 +2,11 @@
   "name": "tarot-cards",
   "version": "1.0.0",
   "description": "A library for working with tarot cards.",
-  "main": "index.js",
+  "main": "./index.js",
   "type": "module",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "debug": "node --input-type=module --eval \"import {main} from './index.js'; console.log(main('Strength'));\""
   },
   "repository": {
     "type": "git",
