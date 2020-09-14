@@ -1,0 +1,26 @@
+{
+  "name": "tarot-cards",
+  "version": "1.0.0",
+  "description": "A library for working with tarot cards.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanschun/tarot-cards.git"
+  },
+  "keywords": [
+    "tarot",
+    "cards",
+    "tarot",
+    "cards"
+  ],
+  "author": "Hans Chun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hanschun/tarot-cards/issues"
+  },
+  "homepage": "https://github.com/hanschun/tarot-cards#readme"
+}
