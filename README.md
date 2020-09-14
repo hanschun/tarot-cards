@@ -1,6 +1,6 @@
 # tarot-cards  
 A library for working with tarot cards.  
-
+The current version offers functions for working with the Major Arcana, starting with a deck sorted in numerical order.
 
 ## Cards Used
 In version 1, cards used are a generic implementation of the tarot used in the Rider-Waite tarot deck.  [https://en.wikipedia.org/wiki/Rider-Waite_tarot_deck](https://en.wikipedia.org/wiki/Rider-Waite_tarot_deck)
@@ -29,4 +29,4 @@ In version 1, cards used are a generic implementation of the tarot used in the R
 * The Fool  
 
 ### Minor Arcana  
-In the Minor Arcana, 4 suits are used: Wands, Pentacles, Cups and Swords. Each suit contains cards valued 1 (Ace) - 10 and face cards named the Page, Knight, Queen and King.  
+In the Minor Arcana, 4 suits are used: Wands, Pentacles, Cups and Swords. Each suit contains cards valued 1 (Ace) - 10 and face cards named the Page, Knight, Queen and King. (planned for future release)
