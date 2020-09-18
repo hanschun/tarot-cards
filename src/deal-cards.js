@@ -7,5 +7,7 @@ export const deal = (cardName) => {
   // values is [{values}] as an Array
   const cards = [...deck.values()]
   const ind = cards.findIndex(c => c.name === cardName)
-  return cards[ind+1]
+  return ind+1 < cards.length ?
+    cards[ind+1] : 
+    cards[0]
 }

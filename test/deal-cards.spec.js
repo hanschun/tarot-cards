@@ -27,17 +27,15 @@ describe('dealCards Tests', () => {
   });
 
   describe('deal function test', () => {
-    let nextCard, match, thirdCard, anotherMatch
-    beforeEach( function() {
-      // the next card should be 'The Hermit', card number 'IX'
-      // next card returns as a [key, {value}]
-      nextCard = deal(card.name)
-      match = major.get('The Hermit')
-      thirdCard = deal(match.name)
-      anotherMatch = major.get('Wheel of Fortune')
-    })
-
     describe('return next card in series', () => {
+      let nextCard, match
+      beforeEach( function() {
+        // the next card should be 'The Hermit', card number 'IX'
+        // next card returns as a [key, {value}]
+        nextCard = deal(card.name)
+        match = major.get('The Hermit')
+      })
+
       it('should return a card', () => {
         assert.notStrictEqual(nextCard, null)
       })
@@ -56,20 +54,52 @@ describe('dealCards Tests', () => {
     })
     
     describe('return third card in series', () => {
+      let nextCard, match
+      beforeEach( function() {
+        card = major.get('The Hermit')
+        nextCard = deal(card.name)
+        match = major.get('Wheel of Fortune')
+      })
+
       it('should return a card', () => {
-        assert.notStrictEqual(thirdCard, null)
+        assert.notStrictEqual(nextCard, null)
       })
   
       it('should return a card with the name "Wheel of Fortune"', () => {
-        assert.strictEqual(thirdCard.name, 'Wheel of Fortune')
+        assert.strictEqual(nextCard.name, 'Wheel of Fortune')
       })
   
       it('should return a card with the number "IX"', () => {
-        assert.strictEqual(thirdCard.number, 'X')
+        assert.strictEqual(nextCard.number, 'X')
       })
   
       it('should return a card with an image URI', () => {
-        assert.strictEqual(thirdCard.image, anotherMatch.image)
+        assert.strictEqual(nextCard.image, match.image)
+      })
+    })
+
+    describe('return first card when at end of series', () => {
+      let nextCard, match
+      beforeEach( function() {
+        card = major.get('The World')
+        nextCard = deal(card.name)
+        match = major.get('The Fool')
+      })
+
+      it('should return a card and not null', () => {
+        assert.notStrictEqual(nextCard, null)
+      })
+
+      it('should return a card with the name "The Fool"', () => {
+        assert.strictEqual(nextCard.name, 'The Fool')
+      })
+
+      it('should return a card with the number "0"', () => {
+        assert.strictEqual(nextCard.number, '0')
+      })
+
+      it('should return a card and not null', () => {
+        assert.strictEqual(nextCard.image, match.image)
       })
     })
   })
