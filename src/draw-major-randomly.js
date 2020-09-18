@@ -1,21 +1,35 @@
 import {mapMajor} from './map-major.js'
-import {shuffleMap} from './map-sort.js'
+import {shuffleMap, queueMap} from './map-sort.js'
 
-// THESE FUNCTIONS NEED TO GET TURNED INTO A SET OF UTILITIES
-
-export const drawMajorRandomly = (times) => {
-  let deck = mapMajor()
+export const shuffle = async (deck, times) => {
   for(let i = 0; i < times; i++) {
     const shuffled = shuffleMap(deck)
     deck = shuffled
   }
   return deck
-  /* 
-    1. iterate over the map
-    2. divide the map into two smaller maps.
-    3. return the shuffled map.
-    4. repeat (so a sub-function)
-  */  
+}
 
+export const queueCards = async (deck) => {
+  const min = 2
+  const max = 25
+  const limit = Math.floor(Math.random() * (max - min) + min)
+  const iter = limit > 2 ? limit : 2
+  for(let j = 0; j < iter; j++) {
+    const queued = queueMap(deck, j)
+    deck = queued
+  }
+  return deck
+}
 
+export const shuffleDeck = async (times) => {
+  let deck = mapMajor()
+  deck = await shuffle(deck, times)
+  deck = await queueCards(deck)
+  return deck
+}
+
+export const drawMajorRandomly = async (times) => {
+  const deck = await shuffleDeck(times)
+  const cards = deck.entries()
+  return cards.next().value
 }
