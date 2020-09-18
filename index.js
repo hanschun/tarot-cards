@@ -1,5 +1,6 @@
 export {drawMajorByName} from './src/draw-major-by-name.js'
 export {mapMajor} from './src/map-major.js'
+export {deal} from './src/deal-cards.js'
 
 /*
 TO DO:
